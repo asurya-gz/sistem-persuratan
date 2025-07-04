@@ -1,0 +1,217 @@
+/* ========================================
+   public/css/account-list.css
+   ======================================== */
+
+/* Account List Page Styles */
+.account-list-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: all 0.3s;
+}
+
+.account-list-card:hover {
+    box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.account-list-table thead th {
+    background-color: #f8f9fc;
+    border-top: none;
+    border-bottom: 1px solid #e3e6f0;
+    color: #5a5c69;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0.75rem;
+}
+
+.account-list-table tbody td {
+    padding: 1rem 0.75rem;
+    border-top: 1px solid #e3e6f0;
+    vertical-align: middle;
+}
+
+.account-list-table tbody tr:hover {
+    background-color: #f8f9fc;
+}
+
+.account-status-active {
+    color: #1cc88a;
+    border-color: #1cc88a;
+    background-color: rgba(28, 200, 138, 0.1);
+}
+
+.account-status-inactive {
+    color: #e74a3b;
+    border-color: #e74a3b;
+    background-color: rgba(231, 74, 59, 0.1);
+}
+
+.account-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.account-no-data {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.account-no-data i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* ========================================
+   OPSI 2: resources/css/admin.css (untuk Vite/Mix)
+   ======================================== */
+
+/* Admin Panel Global Styles */
+.admin-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: all 0.3s;
+}
+
+.admin-card:hover {
+    box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.admin-table thead th {
+    background-color: #f8f9fc;
+    border-top: none;
+    border-bottom: 1px solid #e3e6f0;
+    color: #5a5c69;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0.75rem;
+}
+
+.admin-table tbody td {
+    padding: 1rem 0.75rem;
+    border-top: 1px solid #e3e6f0;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f8f9fc;
+}
+
+.admin-btn-status {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 0.35rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.admin-status-active {
+    color: #1cc88a;
+    border-color: #1cc88a;
+    background-color: rgba(28, 200, 138, 0.1);
+}
+
+.admin-status-inactive {
+    color: #e74a3b;
+    border-color: #e74a3b;
+    background-color: rgba(231, 74, 59, 0.1);
+}
+
+.admin-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.admin-no-data {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.admin-no-data i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* ========================================
+   OPSI 3: resources/sass/pages/_account-list.scss
+   ======================================== */
+
+.account-list {
+    &-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        transition: all 0.3s;
+
+        &:hover {
+            box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+        }
+    }
+
+    &-table {
+        thead th {
+            background-color: #f8f9fc;
+            border-top: none;
+            border-bottom: 1px solid #e3e6f0;
+            color: #5a5c69;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 0.75rem;
+        }
+
+        tbody {
+            td {
+                padding: 1rem 0.75rem;
+                border-top: 1px solid #e3e6f0;
+                vertical-align: middle;
+            }
+
+            tr:hover {
+                background-color: #f8f9fc;
+            }
+        }
+    }
+
+    &-status {
+        &-active {
+            color: #1cc88a;
+            border-color: #1cc88a;
+            background-color: rgba(28, 200, 138, 0.1);
+        }
+
+        &-inactive {
+            color: #e74a3b;
+            border-color: #e74a3b;
+            background-color: rgba(231, 74, 59, 0.1);
+        }
+    }
+
+    &-action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    &-no-data {
+        padding: 3rem 1rem;
+        text-align: center;
+        color: #6c757d;
+
+        i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    }
+}

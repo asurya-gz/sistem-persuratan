@@ -1,0 +1,134 @@
+/* Account Request Page Styles */
+
+.account-request-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: all 0.3s;
+}
+
+.account-request-card:hover {
+    box-shadow: 0 0.25rem 2rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.account-request-card .card-body {
+    padding: 1.5rem;
+}
+
+.account-request-table {
+    margin-bottom: 0;
+}
+
+.account-request-table thead th {
+    background-color: #f8f9fc;
+    border-top: none;
+    border-bottom: 1px solid #e3e6f0;
+    color: #5a5c69;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0.75rem;
+}
+
+.account-request-table tbody td {
+    padding: 1rem 0.75rem;
+    border-top: 1px solid #e3e6f0;
+    vertical-align: middle;
+}
+
+.account-request-table tbody tr:hover {
+    background-color: #f8f9fc;
+}
+
+/* Action buttons styling */
+.account-request-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.account-request-btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 0.35rem;
+    transition: all 0.15s ease-in-out;
+    border: 1px solid;
+}
+
+.account-request-btn-approve {
+    background-color: #1cc88a;
+    border-color: #1cc88a;
+    color: white;
+}
+
+.account-request-btn-approve:hover {
+    background-color: #17a673;
+    border-color: #17a673;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.account-request-btn-reject {
+    background-color: #e74a3b;
+    border-color: #e74a3b;
+    color: white;
+}
+
+.account-request-btn-reject:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* No data message */
+.account-request-no-data {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.account-request-no-data i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* User info styling */
+.account-request-user-name {
+    font-weight: 600;
+    color: #5a5c69;
+}
+
+.account-request-user-email {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Pagination styling */
+.account-request-card .card-footer {
+    background-color: #f8f9fc;
+    border-top: 1px solid #e3e6f0;
+    padding: 1rem 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-request-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .account-request-btn {
+        width: 100%;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .account-request-table thead th,
+    .account-request-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
