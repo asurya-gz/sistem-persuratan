@@ -68,17 +68,49 @@ class SuratController extends Controller
         return view('pages.service-letters.index', compact('surats'));
     }
 
-    // Tampilkan detail surat
-    public function show($id)
-    {
-        $surat = Surat::with('user')->findOrFail($id);
+public function show($id)
+{
+    $surat = Surat::with(['user'])->findOrFail($id);
 
-        if (Auth::user()->role === 'User' && $surat->user_id !== Auth::id()) {
-            abort(403);
-        }
+    // Ambil data detail tambahan berdasarkan jenis_surat
+    $dataTambahan = null;
 
-        return view('pages.service-letters.show', compact('surat'));
+    switch ($surat->jenis_surat) {
+        case 'sktm':
+            $dataTambahan = $surat->sktm;
+            break;
+        case 'skck':
+            $dataTambahan = $surat->skck;
+            break;
+        case 'domisili':
+            $dataTambahan = $surat->suratKeteranganDomisili;
+            break;
+        case 'kehilangan':
+            $dataTambahan = $surat->suratKeteranganKehilangan;
+            break;
+        case 'kematian':
+            $dataTambahan = $surat->suratKeteranganKematian;
+            break;
+        case 'mau_menikah':
+            $dataTambahan = $surat->suratKeteranganMauMenikah;
+            break;
+        case 'kepemilikan_rumah':
+            $dataTambahan = $surat->suratKeteranganPemilikRumah;
+            break;
+        case 'usaha':
+            $dataTambahan = $surat->suratKeteranganUsaha;
+            break;
+        case 'penghasilan_ortu':
+            $dataTambahan = $surat->suratPenghasilanOrangTua;
+            break;
+        case 'sudah_menikah':
+            $dataTambahan = $surat->suratSudahMenikah;
+            break;
     }
+
+    return view('pages.service-letters.show', compact('surat', 'dataTambahan'));
+}
+
 
     // Untuk admin: update status surat
     public function update_status($id, $status)

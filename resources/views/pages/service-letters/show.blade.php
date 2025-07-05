@@ -147,6 +147,46 @@
                         </div>
                     </div>
 
+                    <!-- Data Informasi Tambahan -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0" style="border-left: 4px solid #ffc107 !important;">
+            <div class="card-body">
+                <h6 class="card-title text-warning mb-3">
+                    <i class="fas fa-info-circle me-2"></i>Data Informasi Tambahan
+                </h6>
+
+               @php
+    $partialMap = [
+        'sktm' => 'DetailSktm',
+        'skck' => 'DetailSkck',
+        'domisili' => 'DetailSuratKeteranganDomisili',
+        'kehilangan' => 'DetailSuratKeteranganKehilangan',
+        'kematian' => 'DetailSuratKeteranganKematian',
+        'mau_menikah' => 'DetailSuratKeteranganMauMenikah',
+        'kepemilikan_rumah' => 'DetailSuratKeteranganPemilikRumah',
+        'usaha' => 'DetailSuratKeteranganUsaha',
+        'penghasilan_ortu' => 'DetailSuratPenghasilanOrangTua',
+        'sudah_menikah' => 'DetailSuratSudahMenikah',
+    ];
+
+    $partialName = $partialMap[$surat->jenis_surat] ?? null;
+@endphp
+
+@if ($partialName && View::exists('pages.service-letters.detail-partials.' . $partialName))
+    @include('pages.service-letters.detail-partials.' . $partialName, ['data' => $dataTambahan])
+@else
+    <div class="alert alert-secondary">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Tidak ada data tambahan untuk jenis surat ini.
+    </div>
+@endif
+            </div>
+        </div>
+    </div>
+</div>
+
+
                     <!-- Aksi (hanya untuk status diajukan) -->
                     @if ($surat->status === 'diajukan')
                         <div class="row">
