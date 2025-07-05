@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             'email' => 'penduduk@gmail.com',
             'password' => 'password123',
             'status' => 'approved',
-            'role_id' => '2', // =>Penduduk/user
+            'role_id' => '2',
         ]);
 
         resident::create([
