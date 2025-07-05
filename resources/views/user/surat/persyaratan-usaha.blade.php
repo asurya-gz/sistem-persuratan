@@ -121,6 +121,77 @@
                                   placeholder="Alamat lengkap sesuai KTP"></textarea>
                     </div>
 
+                    <!-- Status Perkawinan -->
+<div class="form-group">
+    <label for="status_perkawinan" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-ring text-indigo-600 mr-2"></i>
+        Status Perkawinan
+    </label>
+    <select name="status_perkawinan" id="status_perkawinan"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        <option value="" disabled selected>-- Pilih Status --</option>
+        <option value="Belum Kawin">Belum Kawin</option>
+        <option value="Kawin">Kawin</option>
+        <option value="Cerai Hidup">Cerai Hidup</option>
+        <option value="Cerai Mati">Cerai Mati</option>
+    </select>
+</div>
+
+<!-- Nama Usaha -->
+<div class="form-group">
+    <label for="nama_usaha" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-store text-indigo-600 mr-2"></i>
+        Nama Usaha
+    </label>
+    <input type="text" name="nama_usaha" id="nama_usaha"
+           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+           placeholder="Contoh: Warung Sembako Makmur">
+</div>
+
+<!-- Jenis Usaha -->
+<div class="form-group">
+    <label for="jenis_usaha" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-industry text-indigo-600 mr-2"></i>
+        Jenis Usaha
+    </label>
+    <input type="text" name="jenis_usaha" id="jenis_usaha"
+           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+           placeholder="Contoh: Dagang / Jasa / Produksi">
+</div>
+
+<!-- Omset -->
+<div class="form-group">
+    <label for="omset" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-money-bill-wave text-indigo-600 mr-2"></i>
+        Omset Perbulan (Rp)
+    </label>
+    <input type="number" name="omset" id="omset"
+           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+           placeholder="Contoh: 10000000">
+</div>
+
+<!-- Penanggung Jawab -->
+<div class="form-group">
+    <label for="penanggung_jawab" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-user-check text-indigo-600 mr-2"></i>
+        Penanggung Jawab
+    </label>
+    <input type="text" name="penanggung_jawab" id="penanggung_jawab"
+           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+           placeholder="Nama penanggung jawab usaha">
+</div>
+
+<!-- Alamat Usaha -->
+<div class="form-group">
+    <label for="alamat_usaha" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-map text-indigo-600 mr-2"></i>
+        Alamat Usaha
+    </label>
+    <textarea name="alamat_usaha" id="alamat_usaha" rows="4"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+              placeholder="Alamat lengkap lokasi usaha"></textarea>
+</div>
+
                     <!-- No Telp & Email -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>

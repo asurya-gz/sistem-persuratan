@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="min-h-screen bg-gray-50 py-8 mt-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
             <!-- Header -->
             <div class="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8 text-center">
@@ -15,147 +15,169 @@
 
             <!-- Form Body -->
             <div class="p-6 lg:p-8">
-                <form method="POST" action="#" class="space-y-6" id="skckForm">
+                <form method="POST" action="#" class="space-y-6">
                     @csrf
 
-                    <!-- NIK -->
-                    <div class="form-group">
-                        <label for="nik" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-id-card text-indigo-600 mr-2"></i>
-                            NIK
+                    <!-- Tanggal Pernikahan -->
+                    <div>
+                        <label for="tanggal_pernikahan" class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-calendar-alt text-indigo-600 mr-2"></i>
+                            Tanggal Pernikahan
                         </label>
-                        <input type="text" name="nik" id="nik"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200"
-                               placeholder="Masukkan NIK Anda">
+                        <input type="date" name="tanggal_pernikahan" id="tanggal_pernikahan"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                     </div>
 
-                    <!-- Tempat & Tanggal Lahir -->
+                    <!-- Data Pria -->
+                    <div class="border-t pt-6">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800">Data Calon Suami</h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="nama_pria" class="block text-sm font-semibold text-gray-700 mb-2">Nama Pria</label>
+                                <input type="text" name="nama_pria" id="nama_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Nama lengkap">
+                            </div>
+                            <div>
+                                <label for="nik_pria" class="block text-sm font-semibold text-gray-700 mb-2">NIK Pria</label>
+                                <input type="text" name="nik_pria" id="nik_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="NIK sesuai KTP">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="tempat_lahir_pria" class="block text-sm font-semibold text-gray-700 mb-2">Tempat Lahir</label>
+                                <input type="text" name="tempat_lahir_pria" id="tempat_lahir_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Semarang">
+                            </div>
+                            <div>
+                                <label for="tanggal_lahir_pria" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Lahir</label>
+                                <input type="date" name="tanggal_lahir_pria" id="tanggal_lahir_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="warga_negara_pria" class="block text-sm font-semibold text-gray-700 mb-2">Warga Negara</label>
+                                <input type="text" name="warga_negara_pria" id="warga_negara_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Indonesia">
+                            </div>
+                            <div>
+                                <label for="agama_pria" class="block text-sm font-semibold text-gray-700 mb-2">Agama</label>
+                                <input type="text" name="agama_pria" id="agama_pria"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Islam">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="alamat_pria" class="block text-sm font-semibold text-gray-700 mb-2">Alamat</label>
+                            <textarea name="alamat_pria" id="alamat_pria" rows="3"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                                placeholder="Alamat lengkap sesuai KTP"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Data Wanita -->
+                    <div class="border-t pt-6">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800">Data Calon Istri</h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="nama_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Nama Wanita</label>
+                                <input type="text" name="nama_wanita" id="nama_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Nama lengkap">
+                            </div>
+                            <div>
+                                <label for="nik_wanita" class="block text-sm font-semibold text-gray-700 mb-2">NIK Wanita</label>
+                                <input type="text" name="nik_wanita" id="nik_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="NIK sesuai KTP">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="tempat_lahir_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Tempat Lahir</label>
+                                <input type="text" name="tempat_lahir_wanita" id="tempat_lahir_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Semarang">
+                            </div>
+                            <div>
+                                <label for="tanggal_lahir_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Lahir</label>
+                                <input type="date" name="tanggal_lahir_wanita" id="tanggal_lahir_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="warga_negara_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Warga Negara</label>
+                                <input type="text" name="warga_negara_wanita" id="warga_negara_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Indonesia">
+                            </div>
+                            <div>
+                                <label for="agama_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Agama</label>
+                                <input type="text" name="agama_wanita" id="agama_wanita"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Contoh: Islam">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="alamat_wanita" class="block text-sm font-semibold text-gray-700 mb-2">Alamat</label>
+                            <textarea name="alamat_wanita" id="alamat_wanita" rows="3"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                                placeholder="Alamat lengkap sesuai KTP"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Alamat Pernikahan -->
+                    <div>
+                        <label for="alamat_pernikahan" class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-home text-indigo-600 mr-2"></i> Alamat Tempat Pernikahan
+                        </label>
+                        <textarea name="alamat_pernikahan" id="alamat_pernikahan" rows="3"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+                            placeholder="Alamat lengkap tempat akan dilangsungkannya pernikahan"></textarea>
+                    </div>
+
+                    <!-- Kontak -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label for="tempat_lahir" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i>
-                                Tempat Lahir
-                            </label>
-                            <input type="text" name="tempat_lahir" id="tempat_lahir"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                   placeholder="Contoh: Semarang">
-                        </div>
-                        <div>
-                            <label for="tanggal_lahir" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-calendar-alt text-indigo-600 mr-2"></i>
-                                Tanggal Lahir
-                            </label>
-                            <input type="date" name="tanggal_lahir" id="tanggal_lahir"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                    </div>
-
-                    <!-- Jenis Kelamin -->
-                    <div class="form-group">
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-venus-mars text-indigo-600 mr-2"></i>
-                            Jenis Kelamin
-                        </label>
-                        <div class="flex gap-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                       class="form-radio text-indigo-600">
-                                <span class="ml-2 text-gray-700">Laki-laki</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                       class="form-radio text-indigo-600">
-                                <span class="ml-2 text-gray-700">Perempuan</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Agama -->
-                    <div class="form-group">
-                        <label for="agama" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-praying-hands text-indigo-600 mr-2"></i>
-                            Agama
-                        </label>
-                        <select name="agama" id="agama"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                            <option value="" disabled selected>-- Pilih Agama --</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                            <option value="Konghucu">Konghucu</option>
-                        </select>
-                    </div>
-
-                    <!-- Warga Negara -->
-                    <div class="form-group">
-                        <label for="warga_negara" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-flag text-indigo-600 mr-2"></i>
-                            Warga Negara
-                        </label>
-                        <input type="text" name="warga_negara" id="warga_negara"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                               placeholder="Contoh: Indonesia">
-                    </div>
-
-                    <!-- Pekerjaan -->
-                    <div class="form-group">
-                        <label for="pekerjaan" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-briefcase text-indigo-600 mr-2"></i>
-                            Pekerjaan
-                        </label>
-                        <input type="text" name="pekerjaan" id="pekerjaan"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                               placeholder="Contoh: Mahasiswa / Karyawan">
-                    </div>
-
-                    <!-- Alamat -->
-                    <div class="form-group">
-                        <label for="alamat" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-home text-indigo-600 mr-2"></i>
-                            Alamat
-                        </label>
-                        <textarea name="alamat" id="alamat" rows="4"
-                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
-                                  placeholder="Alamat lengkap sesuai KTP"></textarea>
-                    </div>
-
-                    <!-- No Telp & Email -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="no_telp" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-phone text-indigo-600 mr-2"></i>
-                                No. Telepon
-                            </label>
+                            <label for="no_telp" class="block text-sm font-semibold text-gray-700 mb-2">No. Telepon</label>
                             <input type="text" name="no_telp" id="no_telp"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                   placeholder="08xxxxxxxxxx">
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                placeholder="08xxxxxxxxxx">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-envelope text-indigo-600 mr-2"></i>
-                                Email
-                            </label>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
                             <input type="email" name="email" id="email"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                   placeholder="contoh@email.com">
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                                placeholder="contoh@email.com">
                         </div>
                     </div>
 
-                    <!-- Tombol Aksi -->
+                    <!-- Tombol -->
                     <div class="flex flex-col sm:flex-row sm:justify-between gap-4 pt-6 border-t border-gray-200">
                         <a href="{{ url()->previous() }}"
-                           class="inline-flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200 border border-gray-300 hover:border-gray-400">
-                            <i class="fas fa-arrow-left mr-2"></i>
-                            Kembali
+                            class="inline-flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 border border-gray-300">
+                            <i class="fas fa-arrow-left mr-2"></i> Kembali
                         </a>
                         <button type="submit"
-                                class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Simpan Persyaratan
+                            class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Simpan Persyaratan
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>

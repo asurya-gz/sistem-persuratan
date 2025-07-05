@@ -88,6 +88,23 @@
                         </select>
                     </div>
 
+                    <!-- Status Perkawinan -->
+<div class="form-group">
+    <label for="status_perkawinan" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-heart text-indigo-600 mr-2"></i>
+        Status Perkawinan
+    </label>
+    <select name="status_perkawinan" id="status_perkawinan"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        <option value="" disabled selected>-- Pilih Status --</option>
+        <option value="Belum Kawin">Belum Kawin</option>
+        <option value="Kawin">Kawin</option>
+        <option value="Cerai Hidup">Cerai Hidup</option>
+        <option value="Cerai Mati">Cerai Mati</option>
+    </select>
+</div>
+
+
                     <!-- Warga Negara -->
                     <div class="form-group">
                         <label for="warga_negara" class="block text-sm font-semibold text-gray-700 mb-2">

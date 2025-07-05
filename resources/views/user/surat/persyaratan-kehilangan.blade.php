@@ -121,6 +121,18 @@
                                   placeholder="Alamat lengkap sesuai KTP"></textarea>
                     </div>
 
+                    <!-- Jenis Kehilangan -->
+<div class="form-group">
+    <label for="jenis_kehilangan" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-exclamation-circle text-indigo-600 mr-2"></i>
+        Jenis Kehilangan
+    </label>
+    <input type="text" name="jenis_kehilangan" id="jenis_kehilangan"
+           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+           placeholder="Contoh: KTP / SIM / STNK / Ijazah">
+</div>
+
+
                     <!-- No Telp & Email -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
