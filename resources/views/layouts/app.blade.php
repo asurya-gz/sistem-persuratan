@@ -10,6 +10,10 @@
 
     <title>Website Desa Situterate</title>
 
+
+    {{-- Import Tailwind CSS --}}
+    @vite('resources/css/app.css')
+
     <!-- Font dan Icon -->
     <link href="{{ asset('Folder/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
@@ -19,6 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Animate.css untuk animasi elegan -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
 
 <!-- Custom CSS tambahan -->
 <style>

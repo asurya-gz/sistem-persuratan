@@ -119,7 +119,7 @@ class AuthController extends Controller
         $user->status = 'submitted'; 
         $user->saveOrFail(); 
 
-        return redirect('/')->with('success', 'Berhasil mendaftarkan akun, dan menunggu persetujuan admin');
+        return redirect('/login')->with('success', 'Berhasil mendaftarkan akun, dan menunggu persetujuan admin');
     }
 
     
