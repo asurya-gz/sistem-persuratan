@@ -63,9 +63,7 @@ Route::middleware(['auth', 'role:User'])->group(function () {
         return view('user.surat.index', compact('surats'));
     })->name('surat.index');
     
-    Route::get('/surat/create', function() {
-        return view('user.surat.create');
-    })->name('surat.create');
+Route::get('/surat/create', [SuratController::class, 'create'])->name('surat.create');
     
     Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
     

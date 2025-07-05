@@ -6,14 +6,19 @@ use App\Models\Surat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\JenisSurat;
+
 
 class SuratController extends Controller
 {
     // Untuk user: ajukan surat
-    public function create()
-    {
-        return view('pages.service-letters.create'); // GANTI path view
-    }
+public function create()
+{
+    $jenisSurats = JenisSurat::orderBy('name')->get();
+    return view('user.surat.create', compact('jenisSurats'));
+}
+
+
 
     public function store(Request $request)
     {

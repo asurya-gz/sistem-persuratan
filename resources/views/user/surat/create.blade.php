@@ -45,42 +45,30 @@
                 <form method="POST" action="{{ route('surat.store') }}" class="space-y-6" id="suratForm" novalidate>
                     @csrf
                     
-                    <!-- Jenis Surat -->
-                    <div class="form-group">
-                        <label for="jenis_surat" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
-                            Jenis Surat
-                        </label>
-                        <select name="jenis_surat" id="jenis_surat" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200 @error('jenis_surat') border-red-300 focus:ring-red-500 focus:border-red-500 @enderror" 
-                                required>
-                            <option value="" selected disabled>-- Pilih Jenis Surat --</option>
-                            <option value="Surat Keterangan Domisili" {{ old('jenis_surat') == 'Surat Keterangan Domisili' ? 'selected' : '' }}>
-                                Surat Keterangan Domisili
-                            </option>
-                            <option value="Surat Keterangan Usaha" {{ old('jenis_surat') == 'Surat Keterangan Usaha' ? 'selected' : '' }}>
-                                Surat Keterangan Usaha
-                            </option>
-                            <option value="Surat Keterangan Tidak Mampu" {{ old('jenis_surat') == 'Surat Keterangan Tidak Mampu' ? 'selected' : '' }}>
-                                Surat Keterangan Tidak Mampu
-                            </option>
-                            <option value="Surat Keterangan Kelahiran" {{ old('jenis_surat') == 'Surat Keterangan Kelahiran' ? 'selected' : '' }}>
-                                Surat Keterangan Kelahiran
-                            </option>
-                            <option value="Surat Keterangan Kematian" {{ old('jenis_surat') == 'Surat Keterangan Kematian' ? 'selected' : '' }}>
-                                Surat Keterangan Kematian
-                            </option>
-                            <option value="Surat Pengantar" {{ old('jenis_surat') == 'Surat Pengantar' ? 'selected' : '' }}>
-                                Surat Pengantar
-                            </option>
-                        </select>
-                        @error('jenis_surat')
-                            <div class="mt-2 text-sm text-red-600 flex items-center">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+           <!-- Jenis Surat -->
+<div class="form-group">
+    <label for="jenis_surat" class="block text-sm font-semibold text-gray-700 mb-2">
+        <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
+        Jenis Surat
+    </label>
+    <select name="jenis_surat" id="jenis_surat" 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200 @error('jenis_surat') border-red-300 focus:ring-red-500 focus:border-red-500 @enderror" 
+            required>
+        <option value="" selected disabled>-- Pilih Jenis Surat --</option>
+        @foreach ($jenisSurats as $jenis)
+            <option value="{{ $jenis->value }}" {{ old('jenis_surat') == $jenis->value ? 'selected' : '' }}>
+                {{ $jenis->name }}
+            </option>
+        @endforeach
+    </select>
+    @error('jenis_surat')
+        <div class="mt-2 text-sm text-red-600 flex items-center">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            {{ $message }}
+        </div>
+    @enderror
+</div>
+
 
                     <!-- Tujuan -->
                     <div class="form-group">
