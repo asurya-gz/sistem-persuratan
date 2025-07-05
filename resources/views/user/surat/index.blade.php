@@ -1,6 +1,22 @@
 @extends('landing.layouts.main')
 @vite('resources/css/app.css')
 
+@php
+    $jenisSuratMap = [
+        'skck'               => 'Surat Keterangan Catatan Kepolisian',
+        'sktm'               => 'Surat Keterangan Tidak Mampu',
+        'domisili'           => 'Surat Keterangan Domisili',
+        'kehilangan'         => 'Surat Keterangan Kehilangan',
+        'kematian'           => 'Surat Keterangan Kematian',
+        'kepemilikan_rumah'  => 'Surat Keterangan Kepemilikan Rumah',
+        'mau_menikah'        => 'Surat Keterangan Mau Menikah',
+        'penghasilan_ortu'   => 'Surat Keterangan Penghasilan Orang Tua',
+        'sudah_menikah'      => 'Surat Keterangan Sudah Menikah',
+        'usaha'              => 'Surat Keterangan Usaha',
+    ];
+@endphp
+
+
 @section('content')
 <section class="min-h-screen bg-gray-50 py-8 mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +79,7 @@
                                 @foreach($surats as $index => $surat)
                                     <tr class="hover:bg-gray-50 transition-colors duration-200">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $index + 1 }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $surat->jenis_surat }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $jenisSuratMap[$surat->jenis_surat] ?? $surat->jenis_surat }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $surat->tujuan }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $surat->created_at->format('d M Y') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Surat;
 use App\Models\User;
+use App\Models\JenisSurat;
 use Carbon\Carbon;
 
 class SuratSeeder extends Seeder
@@ -12,14 +13,7 @@ class SuratSeeder extends Seeder
     public function run(): void
     {
         $users = User::take(3)->get();
-
-        $jenisSurat = [
-            'Surat Keterangan Domisili',
-            'Surat Pengantar RT',
-            'Surat Keterangan Usaha',
-            'Surat Keterangan Tidak Mampu',
-            'Surat Izin Keramaian',
-        ];
+        $jenisSurats = JenisSurat::pluck('value')->toArray(); // Ambil nama-nama surat dari tabel jenis_surats
 
         $tujuanSurat = [
             'Kecamatan Tembalang',
@@ -27,6 +21,9 @@ class SuratSeeder extends Seeder
             'Dinas Perdagangan',
             'Dinas Sosial',
             'Polsek Tembalang',
+            'Kantor Kelurahan',
+            'Universitas Diponegoro',
+            'KUA Tembalang',
         ];
 
         $keteranganSurat = [
@@ -35,6 +32,8 @@ class SuratSeeder extends Seeder
             'Untuk registrasi usaha kecil',
             'Untuk keperluan sekolah',
             'Untuk izin mengadakan acara masyarakat',
+            'Untuk keperluan beasiswa',
+            'Untuk kelengkapan lamaran kerja',
         ];
 
         $statusSurat = ['diajukan', 'disetujui', 'ditolak'];
@@ -42,12 +41,12 @@ class SuratSeeder extends Seeder
         $surats = [];
 
         for ($i = 0; $i < 15; $i++) {
-            $user = $users->random(); // Ambil user acak dari 1-3
+            $user = $users->random();
             $daysAgo = rand(1, 10);
 
             $surats[] = [
                 'user_id' => $user->id,
-                'jenis_surat' => $jenisSurat[array_rand($jenisSurat)],
+                'jenis_surat' => $jenisSurats[array_rand($jenisSurats)], // ambil dari DB
                 'tujuan' => $tujuanSurat[array_rand($tujuanSurat)],
                 'keterangan' => $keteranganSurat[array_rand($keteranganSurat)],
                 'status' => $statusSurat[array_rand($statusSurat)],

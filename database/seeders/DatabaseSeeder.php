@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             ComplaintSeeder::class,
-            SuratSeeder::class
+            JenisSuratSeeder::class,
+            SuratSeeder::class,
         ]);
     }
 }

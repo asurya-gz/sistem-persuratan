@@ -4,6 +4,22 @@
     <link href="{{ asset('css/service-letters.css') }}" rel="stylesheet">
 @endpush
 
+@php
+    $jenisSuratMap = [
+        'skck'               => 'Surat Keterangan Catatan Kepolisian',
+        'sktm'               => 'Surat Keterangan Tidak Mampu',
+        'domisili'           => 'Surat Keterangan Domisili',
+        'kehilangan'         => 'Surat Keterangan Kehilangan',
+        'kematian'           => 'Surat Keterangan Kematian',
+        'kepemilikan_rumah'  => 'Surat Keterangan Kepemilikan Rumah',
+        'mau_menikah'        => 'Surat Keterangan Mau Menikah',
+        'penghasilan_ortu'   => 'Surat Keterangan Penghasilan Orang Tua',
+        'sudah_menikah'      => 'Surat Keterangan Sudah Menikah',
+        'usaha'              => 'Surat Keterangan Usaha',
+    ];
+@endphp
+
+
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Detail Permohonan Surat</h1>
@@ -108,7 +124,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label text-muted small fw-semibold">JENIS SURAT</label>
-                                                <p class="mb-0">{{ $surat->jenis_surat }}</p>
+                                                <p class="mb-0">{{ $jenisSuratMap[$surat->jenis_surat] ?? $surat->jenis_surat }}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
