@@ -64,6 +64,9 @@ Route::middleware(['auth', 'role:User'])->group(function () {
     })->name('surat.index');
     
 Route::get('/surat/create', [SuratController::class, 'create'])->name('surat.create');
+Route::get('/surat/{id}/persyaratan', [SuratController::class, 'formPersyaratan'])->name('persyaratan.form');
+
+
     
     Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
     
