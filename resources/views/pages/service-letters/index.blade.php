@@ -88,16 +88,6 @@
                             </thead>
                             <tbody>
                                 @forelse ($surats as $surat)
-                                    @php
-                                        $btnDetail = '
-                                            data-name="' . e($surat->user->name) . '"
-                                            data-date="' . e($surat->created_at->format('d M Y')) . '"
-                                            data-status="' . ucfirst($surat->status) . '"
-                                            data-jenis="' . e($surat->jenis_surat) . '"
-                                            data-tujuan="' . e($surat->tujuan) . '"
-                                            data-keterangan="' . e($surat->keterangan) . '"';
-                                    @endphp
-
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td><strong>{{ $surat->user->name }}</strong></td>
@@ -134,32 +124,26 @@
                                                     </button>
                                                     <ul class="dropdown-menu">
                                                         <li>
-                                                            <button type="button"
-                                                                class="dropdown-item text-info btn-detail"
-                                                                {!! $btnDetail !!}
-                                                                data-bs-toggle="modal" data-bs-target="#detailModal">
-                                                                Detail
-                                                            </button>
+                                                            <a href="{{ route('admin.surat.show', $surat->id) }}" class="dropdown-item text-info">
+                                                                <i class="fas fa-eye me-2"></i>Detail
+                                                            </a>
                                                         </li>
                                                         <li>
                                                             <button type="button" class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#confirmReject-{{ $surat->id }}">
-                                                                Tolak
+                                                                <i class="fas fa-times me-2"></i>Tolak
                                                             </button>
                                                         </li>
                                                         <li>
                                                             <button type="button" class="dropdown-item text-success" data-bs-toggle="modal" data-bs-target="#confirmApprove-{{ $surat->id }}">
-                                                                Terima
+                                                                <i class="fas fa-check me-2"></i>Terima
                                                             </button>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             @else
-                                                <button type="button"
-                                                    class="btn btn-sm btn-outline-secondary btn-detail"
-                                                    {!! $btnDetail !!}
-                                                    data-bs-toggle="modal" data-bs-target="#detailModal">
-                                                    Detail
-                                                </button>
+                                                <a href="{{ route('admin.surat.show', $surat->id) }}" class="btn btn-sm btn-outline-secondary">
+                                                    <i class="fas fa-eye me-2"></i>Detail
+                                                </a>
                                             @endif
                                         </td>
                                     </tr>
@@ -187,49 +171,4 @@
             </div>
         </div>
     </div>
-
-    {{-- Modal Detail --}}
-    @include('pages.service-letters.modal-detail')
 @endsection
-
-@push('scripts')
-<script>
-function updateStatusBadge(status) {
-    const modalStatus = document.getElementById('modalStatus');
-    modalStatus.className = 'badge px-3 py-2';
-
-    switch(status.toLowerCase()) {
-        case 'diajukan':
-            modalStatus.classList.add('bg-warning', 'text-dark');
-            modalStatus.innerHTML = '<i class="fas fa-hourglass-half me-1"></i>' + status;
-            break;
-        case 'disetujui':
-            modalStatus.classList.add('bg-success');
-            modalStatus.innerHTML = '<i class="fas fa-check-circle me-1"></i>' + status;
-            break;
-        case 'ditolak':
-            modalStatus.classList.add('bg-danger');
-            modalStatus.innerHTML = '<i class="fas fa-times-circle me-1"></i>' + status;
-            break;
-        default:
-            modalStatus.classList.add('bg-secondary');
-            modalStatus.innerHTML = status;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const detailButtons = document.querySelectorAll(".btn-detail");
-
-    detailButtons.forEach(btn => {
-        btn.addEventListener("click", function () {
-            document.getElementById("modalName").textContent = this.dataset.name;
-            document.getElementById("modalDate").textContent = this.dataset.date;
-            document.getElementById("modalJenis").textContent = this.dataset.jenis;
-            document.getElementById("modalTujuan").textContent = this.dataset.tujuan;
-            document.getElementById("modalKeterangan").textContent = this.dataset.keterangan;
-            updateStatusBadge(this.dataset.status);
-        });
-    });
-});
-</script>
-@endpush

@@ -101,7 +101,8 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     ->name('admin.surat.update_status')
     ->where(['id' => '[0-9]+', 'status' => 'diajukan|disetujui|ditolak']);
 });
-
+Route::get('/surat/{id}/download', [SuratController::class, 'download'])->name('surat.download');
+Route::get('/admin/surat/{id}', [SuratController::class, 'show'])->name('admin.surat.show');
 // Route Akses Admin //
 Route::get('/resident', [ResidentController::class, 'index'])->middleware('role:Admin');
 Route::get('/resident/create', [ResidentController::class, 'create'])->middleware('role:Admin');
