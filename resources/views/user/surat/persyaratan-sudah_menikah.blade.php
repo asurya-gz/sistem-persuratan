@@ -10,16 +10,18 @@
                     <i class="fas fa-id-card-alt mr-3"></i>
                     Persyaratan Keterangan Sudah Menikah
                 </h2>
+
                 <p class="text-indigo-100 mt-2">Silakan lengkapi form berikut ini sesuai dengan dokumen Anda</p>
             </div>
 
             <!-- Form Body -->
             <div class="p-6 lg:p-8">
-                <form method="POST" action="#" class="space-y-6" id="skckForm">
+               <form method="POST" action="{{ route('sudah-menikah.store') }}" class="space-y-6" id="skckForm">
                     @csrf
 
                    <!-- === DATA PRIA === -->
 <h3 class="text-lg font-bold text-gray-700 mb-4 mt-8">Data Suami</h3>
+    <input type="hidden" name="surats_id" value="{{ $surat->id }}">
 
 <!-- Nama Pria -->
 <div class="form-group">
