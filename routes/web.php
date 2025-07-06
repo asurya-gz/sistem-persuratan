@@ -14,6 +14,16 @@ use App\Models\Complaint;
 use App\Models\Role;
 use App\Models\Surat;
 use App\Models\User;
+use App\Http\Controllers\SkckController;
+use App\Http\Controllers\SktmController;
+use App\Http\Controllers\SuratKeteranganDomisiliController;
+use App\Http\Controllers\SuratKeteranganKehilanganController;
+use App\Http\Controllers\SuratKeteranganKematianController;
+use App\Http\Controllers\SuratKeteranganMauMenikahController;
+use App\Http\Controllers\SuratKeteranganPemilikRumahController;
+use App\Http\Controllers\SuratKeteranganUsahaController;
+use App\Http\Controllers\SuratPenghasilanOrangTuaController;
+use App\Http\Controllers\SuratSudahMenikahController;
 
 // ROUTE UNTUK LANDING PAGE //
 Route::get('/', [LandingController::class, 'index']);
@@ -105,12 +115,6 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
 Route::get('/surat/{id}/download', [SuratController::class, 'download'])->name('surat.download');
 Route::get('/admin/surat/{id}', [SuratController::class, 'show'])->name('admin.surat.show');
 // Route Akses Admin //
-Route::get('/resident', [ResidentController::class, 'index'])->middleware('role:Admin');
-Route::get('/resident/create', [ResidentController::class, 'create'])->middleware('role:Admin');
-Route::get('/resident/{id}', [ResidentController::class, 'edit'])->middleware('role:Admin');
-Route::post('/resident', [ResidentController::class, 'store'])->middleware('role:Admin');
-Route::put('/resident/{id}', [ResidentController::class, 'update'])->middleware('role:Admin');
-Route::delete('/resident/{id}', [ResidentController::class, 'delete'])->middleware('role:Admin');
 
 // request form login dan register //
 Route::get('account-list', [UserController::class, 'account_list_view'])->middleware('role:Admin');
@@ -129,4 +133,60 @@ Route::post('/change-password/{id}', [UserController::class, 'change_password'])
 //Router untuk complaint admin //
 Route::get('/complaint', [ComplaintController::class, 'index'])->middleware('role:Admin');
 Route::post('/complaint/update-status/{id}', [ComplaintController::class, 'update_status'])->middleware('role:Admin');
+
+Route::get('/skck', [SkckController::class, 'index']);
+Route::get('/skck/search/{surats_id}', [SkckController::class, 'findBySuratsId']);
+Route::get('/sktm', [SktmController::class, 'index']);
+Route::get('/sktm/{surats_id}', [SktmController::class, 'findBySuratsId']);
+// SKTM
+Route::get('/sktm', [SktmController::class, 'index']);
+Route::get('/sktm/{surats_id}', [SktmController::class, 'findBySuratsId']);
+
+// SKCK
+Route::get('/skck', [SkckController::class, 'index']);
+Route::get('/skck/{surats_id}', [SkckController::class, 'findBySuratsId']);
+
+// Domisili
+Route::get('/domisili', [SuratKeteranganDomisiliController::class, 'index']);
+Route::get('/domisili/{surats_id}', [SuratKeteranganDomisiliController::class, 'findBySuratsId']);
+
+// Kehilangan
+Route::get('/kehilangan', [SuratKeteranganKehilanganController::class, 'index']);
+Route::get('/kehilangan/{surats_id}', [SuratKeteranganKehilanganController::class, 'findBySuratsId']);
+
+// Kematian
+Route::get('/kematian', [SuratKeteranganKematianController::class, 'index']);
+Route::get('/kematian/{surats_id}', [SuratKeteranganKematianController::class, 'findBySuratsId']);
+
+// Mau Menikah
+Route::get('/mau-menikah', [SuratKeteranganMauMenikahController::class, 'index']);
+Route::get('/mau-menikah/{surats_id}', [SuratKeteranganMauMenikahController::class, 'findBySuratsId']);
+
+// Pemilik Rumah
+Route::get('/kepemilikan-rumah', [SuratKeteranganPemilikRumahController::class, 'index']);
+Route::get('/kepemilikan-rumah/{surats_id}', [SuratKeteranganPemilikRumahController::class, 'findBySuratsId']);
+
+// Usaha
+Route::get('/usaha', [SuratKeteranganUsahaController::class, 'index']);
+Route::get('/usaha/{surats_id}', [SuratKeteranganUsahaController::class, 'findBySuratsId']);
+
+// Penghasilan Orang Tua
+Route::get('/penghasilan-ortu', [SuratPenghasilanOrangTuaController::class, 'index']);
+Route::get('/penghasilan-ortu/{surats_id}', [SuratPenghasilanOrangTuaController::class, 'findBySuratsId']);
+
+// Sudah Menikah
+Route::get('/sudah-menikah', [SuratSudahMenikahController::class, 'index']);
+Route::get('/sudah-menikah/{surats_id}', [SuratSudahMenikahController::class, 'findBySuratsId']);
+
+Route::post('/skck/store', [SkckController::class, 'store'])->name('skck.store');
+Route::post('/sktm/store', [SktmController::class, 'store'])->name('sktm.store');
+Route::post('/domisili/store', [SuratKeteranganDomisiliController::class, 'store'])->name('domisili.store');
+Route::post('/kehilangan/store', [SuratKeteranganKehilanganController::class, 'store'])->name('kehilangan.store');
+Route::post('/kematian/store', [SuratKeteranganKematianController::class, 'store'])->name('kematian.store');
+Route::post('/mau-menikah/store', [SuratKeteranganMauMenikahController::class, 'store'])->name('mau_menikah.store');
+Route::post('/kepemilikan-rumah', [SuratKeteranganPemilikRumahController::class, 'store'])->name('kepemilikan-rumah.store');
+Route::post('/usaha/store', [SuratKeteranganUsahaController::class, 'store'])->name('usaha.store');
+Route::post('/penghasilan/store', [SuratPenghasilanOrangtuaController::class, 'store'])->name('penghasilan.store');
+Route::post('/sudah-menikah/store', [SuratSudahMenikahController::class, 'store'])->name('sudah-menikah.store');
+
 

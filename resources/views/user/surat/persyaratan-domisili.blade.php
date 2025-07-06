@@ -15,8 +15,9 @@
 
             <!-- Form Body -->
             <div class="p-6 lg:p-8">
-                <form method="POST" action="#" class="space-y-6" id="skckForm">
-                    @csrf
+                <form method="POST" action="{{ route('domisili.store') }}" class="space-y-6" id="domisiliForm">
+    @csrf
+    <input type="hidden" name="surats_id" value="{{ $surat->id }}">
 
                     <!-- NIK -->
                     <div class="form-group">

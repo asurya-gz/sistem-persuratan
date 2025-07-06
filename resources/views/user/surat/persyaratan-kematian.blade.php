@@ -15,8 +15,9 @@
 
             <!-- Form Body -->
             <div class="p-6 lg:p-8">
-                <form method="POST" action="#" class="space-y-6">
+               <form method="POST" action="{{ route('kematian.store') }}" class="space-y-6">
                     @csrf
+<input type="hidden" name="surats_id" value="{{ $surat->id }}">
 
                     <!-- Nama -->
                     <div>

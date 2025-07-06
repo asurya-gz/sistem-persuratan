@@ -15,9 +15,9 @@
 
             <!-- Form Body -->
             <div class="p-6 lg:p-8">
-                <form method="POST" action="#" class="space-y-6" id="skckForm">
-                    @csrf
-
+               <form method="POST" action="{{ route('sktm.store') }}" class="space-y-6" id="sktmForm">
+    @csrf
+    <input type="hidden" name="surats_id" value="{{ $surat->id }}">
                     <!-- NIK -->
                     <div class="form-group">
                         <label for="nik" class="block text-sm font-semibold text-gray-700 mb-2">

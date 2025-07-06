@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\JenisSurat;
+use App\Models\Skck;
+use App\Models\Sktm;
+use App\Models\SuratKeteranganDomisili;
+use App\Models\SuratKeteranganKehilangan;
+use App\Models\SuratKeteranganKematian;
+use App\Models\SuratKeteranganMauMenikah;
+use App\Models\SuratKeteranganPemilikRumah;
+use App\Models\SuratKeteranganUsaha;
+use App\Models\SuratPenghasilanOrangTua;
+use App\Models\SuratSudahMenikah;
 
 class SuratController extends Controller
 {
@@ -163,16 +173,41 @@ public function show($id)
     }
 
     // Tampilkan form persyaratan berdasarkan jenis surat
-    public function formPersyaratan($id)
-    {
-        $surat = Surat::findOrFail($id);
-        $jenis = strtolower($surat->jenis_surat);
-        $viewName = 'user.surat.persyaratan-' . $jenis;
+   public function formPersyaratan($id)
+{
+    $surat = Surat::findOrFail($id);
+    $jenis = strtolower($surat->jenis_surat);
 
-        if (view()->exists($viewName)) {
-            return view($viewName, compact('surat'));
-        }
+    // Mapping jenis surat ke nama model
+     $modelMap = [
+        'skck' => Skck::class,
+        'sktm' => Sktm::class,
+        'domisili' => SuratKeteranganDomisili::class,
+        'kehilangan' => SuratKeteranganKehilangan::class,
+        'kematian' => SuratKeteranganKematian::class,
+        'mau_menikah' => SuratKeteranganMauMenikah::class,
+        'kepemilikan_rumah' => SuratKeteranganPemilikRumah::class,
+        'usaha' => SuratKeteranganUsaha::class,
+        'penghasilan_ortu' => SuratPenghasilanOrangtua::class,
+        'sudah_menikah' => SuratSudahMenikah::class,
+    ];
 
-        return abort(404, 'Form persyaratan untuk jenis surat ini belum tersedia.');
+    $modelClass = $modelMap[$jenis] ?? null;
+
+    if (!$modelClass) {
+        return abort(404, 'Jenis surat tidak dikenal.');
     }
+
+    // Ambil data detail surat dari model terkait berdasarkan surats_id
+    $detail = $modelClass::where('surats_id', $id)->first();
+
+    // Nama view sesuai konvensi
+    $viewName = 'user.surat.persyaratan-' . $jenis;
+
+    if (view()->exists($viewName)) {
+        return view($viewName, compact('surat', 'detail'));
+    }
+
+    return abort(404, 'Form persyaratan untuk jenis surat ini belum tersedia.');
+}
 }
