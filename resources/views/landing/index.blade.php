@@ -17,9 +17,21 @@
                         <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-1s" style="color: white;">
                             Sistem Informasi <span class="text-gradient">Desa</span>
                         </h1>
-                       <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-2s" style="color: white;">
+                       <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-2s" style="color: white; max-width: 85%;">
                             Menyediakan layanan informasi dan pelayanan digital yang mudah, cepat, dan terpercaya untuk seluruh warga desa
                         </p>
+                        @auth
+                        <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                            <a href="{{ url('/dashboard') }}" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-tachometer-alt me-2"></i>
+                                Dashboard
+                            </a>
+                            <a href="{{ url('/surat') }}" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-file-alt me-2"></i>
+                                Buat Surat
+                            </a>
+                        </div>
+                        @else
                         <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
                             <a href="{{ url('/login') }}" class="btn btn-primary btn-lg me-3">
                                 <i class="fas fa-sign-in-alt me-2"></i>
@@ -30,6 +42,7 @@
                                 Daftar Sekarang
                             </a>
                         </div>
+                        @endauth
                         <div class="hero-features animate__animated animate__fadeInUp animate__delay-4s">
                             <div class="feature-item">
                                 <i class="fas fa-shield-alt text-success"></i>
@@ -302,6 +315,18 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-center">
+                        @auth
+                        <div class="cta-buttons">
+                            <a class="btn btn-light btn-lg mb-3 w-100" href="{{ url('/dashboard') }}">
+                                <i class="fas fa-tachometer-alt me-2"></i>
+                                Ke Dashboard
+                            </a>
+                            <a class="btn btn-outline-light btn-lg w-100" href="{{ url('/surat') }}">
+                                <i class="fas fa-file-alt me-2"></i>
+                                Buat Surat Baru
+                            </a>
+                        </div>
+                        @else
                         <div class="cta-buttons">
                             <a class="btn btn-light btn-lg mb-3 w-100" href="{{ url('/register') }}">
                                 <i class="fas fa-user-plus me-2"></i>
@@ -312,6 +337,7 @@
                                 Sudah Punya Akun?
                             </a>
                         </div>
+                        @endauth
                     </div>
                 </div>
             </div>
